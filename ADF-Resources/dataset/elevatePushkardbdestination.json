@@ -1,0 +1,17 @@
+{
+	"name": "elevatePushkardbdestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldbLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "elevate",
+			"table": "pushkardemo"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
