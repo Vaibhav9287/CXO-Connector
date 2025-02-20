@@ -1,0 +1,12 @@
+{
+	"name": "hubspotAPI_LS",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://api.hubapi.com/crm/v3/objects/companies?limit=100",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
