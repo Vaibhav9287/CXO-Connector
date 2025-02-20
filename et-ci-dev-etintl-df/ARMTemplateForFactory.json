@@ -114,21 +114,53 @@
 								"requestInterval": "00.00:00:00.010",
 								"requestMethod": "GET",
 								"additionalHeaders": {
-									"Authorization": "Bearer CL3S5ZHSMhIbQgGAQAAAQSAAAAA4BwAAAAAAAAAAAAAAAAAgGJOJpgogsbHSGCjGzO0BMhTW9diYQOYl8fVy2fm3sUi9m5mXeDpTADEAR_8HAAAAAIAAAGB4ziyAAAAgAAAAFAAAOAAIANDD_xcBAAAggGf8h_8AALADAAAAAAAAAAAAAAIACLgCBAAAAAAAAAAAAAAAAAAAAEAAACBCFDlaxw6dQAwfovFCSFWAluK9gzXQSgNuYTFSAFoAYAA"
+									"Authorization": "Bearer CN3G2ZLSMhIbQgGAQAAAQSAAAAA4BwAAAAAAAAAAAAAAAAAgGJOJpgogsbHSGCjGzO0BMhQ7tCOHDaXLGUYy9LF8SzoHjh-rDDpTADEAR_8HAAAAAIAAAGB4ziyAAAAgAAAAFAAAOAAIANDD_xcBAAAggGf8h_8AALADAAAAAAAAAAAAAAIACLgCBAAAAAAAAAAAAAAAAAAAAEAAACBCFPFSDJRtNudmVXe9__5qKdfI0XubSgNuYTFSAFoAYAA"
 								},
 								"paginationRules": {
-									"AbsoluteUrl": "$.$.paging.next.link",
-									"EndCondition:$results": "Empty"
+									"QueryParameters.after": "RANGE:1:25000:100"
 								}
 							},
 							"sink": {
 								"type": "AzureSqlSink",
 								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false,
+								"sqlWriterUseTableLock": true,
 								"tableOption": "autoCreate",
 								"disableMetricsCollection": false
 							},
-							"enableStaging": false
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "[['id']"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['properties']['domain']"
+										},
+										"sink": {
+											"name": "Domain",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "[['properties']['name']"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									}
+								],
+								"collectionReference": "$['results']"
+							}
 						},
 						"inputs": [
 							{
@@ -139,7 +171,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "cxoSQL",
+								"referenceName": "cxoDatabaseDS",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -156,7 +188,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/hubSpotRestService')]",
-				"[concat(variables('factoryId'), '/datasets/cxoSQL')]"
+				"[concat(variables('factoryId'), '/datasets/cxoDatabaseDS')]"
 			]
 		},
 		{
@@ -578,7 +610,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "StorePerson"
+					"table": "Company"
 				}
 			},
 			"dependsOn": [
@@ -598,7 +630,7 @@
 				"type": "AzureSqlTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "hbo",
+					"schema": "dbo",
 					"table": "Company"
 				}
 			},
