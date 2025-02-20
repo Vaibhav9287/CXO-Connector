@@ -416,7 +416,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy Data from API",
+						"name": "JSON Pagination",
 						"description": "Implement pagination using Absolute URL option.",
 						"type": "Copy",
 						"dependsOn": [],
@@ -435,7 +435,8 @@
 								"requestInterval": "00.00:00:00.010",
 								"requestMethod": "GET",
 								"paginationRules": {
-									"supportRFC5988": "true"
+									"AbsoluteUrl": "$.paging.next.link",
+									"EndCondition:$results": "Empty"
 								}
 							},
 							"sink": {
