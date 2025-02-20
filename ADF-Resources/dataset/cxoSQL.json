@@ -1,0 +1,16 @@
+{
+	"name": "cxoSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hboCompany_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "hbo",
+			"table": "Company"
+		}
+	}
+}
