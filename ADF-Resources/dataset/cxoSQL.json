@@ -9,7 +9,7 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "hbo",
+			"schema": "dbo",
 			"table": "Company"
 		}
 	}
