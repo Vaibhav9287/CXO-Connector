@@ -22,7 +22,7 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"AbsoluteUrl": "$.paging.next.link",
+							"AbsoluteUrl": "$.$.paging.next.link",
 							"EndCondition:$results": "Empty"
 						}
 					},
