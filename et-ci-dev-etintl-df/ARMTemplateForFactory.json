@@ -113,6 +113,9 @@
 								"httpRequestTimeout": "00:01:40",
 								"requestInterval": "00.00:00:00.010",
 								"requestMethod": "GET",
+								"additionalHeaders": {
+									"Authorization": "Bearer CL3S5ZHSMhIbQgGAQAAAQSAAAAA4BwAAAAAAAAAAAAAAAAAgGJOJpgogsbHSGCjGzO0BMhTW9diYQOYl8fVy2fm3sUi9m5mXeDpTADEAR_8HAAAAAIAAAGB4ziyAAAAgAAAAFAAAOAAIANDD_xcBAAAggGf8h_8AALADAAAAAAAAAAAAAAIACLgCBAAAAAAAAAAAAAAAAAAAAEAAACBCFDlaxw6dQAwfovFCSFWAluK9gzXQSgNuYTFSAFoAYAA"
+								},
 								"paginationRules": {
 									"AbsoluteUrl": "$.$.paging.next.link",
 									"EndCondition:$results": "Empty"
