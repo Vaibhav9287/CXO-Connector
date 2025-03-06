@@ -1,0 +1,17 @@
+{
+	"name": "cxoSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hboCompany_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Company"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
